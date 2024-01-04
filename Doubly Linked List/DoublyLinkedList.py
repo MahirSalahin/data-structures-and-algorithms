@@ -2,9 +2,10 @@ class Node:
     def __init__(self, value) -> None:
         self.value = value
         self.next = None
+        self.prev = None
 
 
-class LinkedList:
+class DoublyLinkedList:
     def __init__(self, value) -> None:
         new_node = Node(value)
         self.head = new_node
@@ -13,16 +14,17 @@ class LinkedList:
 
     def print_list(self) -> None:
         cur = self.head
-        while cur is not None:
+        while cur:
             print(cur.value)
             cur = cur.next
 
     def append(self, value) -> bool:
         new_node = Node(value)
-        if self.length == 0:
+        if self.head is None:
             self.head = new_node
             self.tail = new_node
         else:
+            new_node.prev = self.tail
             self.tail.next = new_node
             self.tail = new_node
         self.length += 1
@@ -31,27 +33,26 @@ class LinkedList:
     def pop(self) -> Node:
         if self.length == 0:
             return None
+
         tail = self.tail
         if self.length == 1:
             self.head = None
             self.tail = None
         else:
-            temp = self.head
-            while temp.next is not self.tail:
-                temp = temp.next
-            temp.next = None
-            self.tail = temp
-
+            self.tail = self.tail.prev
+            self.tail.next = None
+            tail.prev = None
         self.length -= 1
         return tail
 
     def prepend(self, value) -> bool:
         new_node = Node(value)
-        if self.length == 0:
+        if self.head is None:
             self.head = new_node
             self.tail = new_node
         else:
             new_node.next = self.head
+            self.head.prev = new_node
             self.head = new_node
         self.length += 1
         return True
@@ -65,17 +66,24 @@ class LinkedList:
             self.tail = None
         else:
             self.head = self.head.next
-        head.next = None
+            self.head.prev = None
+            head.next = None
         self.length -= 1
         return head
 
     def get(self, index) -> Node:
         if index < 0 or index >= self.length:
             return None
-        temp = self.head
-        for _ in range(index):
-            temp = temp.next
-        return temp
+
+        cur = self.head
+        if index <= self.length:
+            for _ in range(index):
+                cur = cur.next
+        else:
+            cur = self.tail
+            for _ in range(self.length - 1, index, -1):
+                cur = cur.prev
+        return cur
 
     def set_value(self, index, value) -> bool:
         temp = self.get(index)
@@ -94,40 +102,36 @@ class LinkedList:
 
         new_node = Node(value)
         temp = self.get(index - 1)
+
+        new_node.prev = temp
         new_node.next = temp.next
+        temp.next.prev = new_node
         temp.next = new_node
+        
         self.length += 1
         return True
 
     def remove(self, index) -> Node:
         if self.length == 0 or index < 0 or index >= self.length:
-            return Node
+            return None
         if index == 0:
             return self.pop_first()
         if index == self.length - 1:
             return self.pop()
-        prev = self.get(index - 1)
-        temp = prev.next
-        prev.next = temp.next
+        
+        temp = self.get(index)
+
+        temp.prev.next = temp.next
+        temp.next.prev = temp.prev
         temp.next = None
+        temp.prev = None
+        
         self.length -= 1
         return temp
 
-    def reverse(self) -> None:
-        temp = self.head
-        prev = None
-        # after = temp.next
-        self.head, self.tail = self.tail, self.head
-        while temp is not None:
-            after = temp.next
-            temp.next = prev
-            prev = temp
-            temp = after
-
-
-my_linked_list = LinkedList(1)
-my_linked_list.pop()
-my_linked_list.append(2)
-my_linked_list.append(3)
-my_linked_list.reverse()
-my_linked_list.print_list()
+doublyLinkedList = DoublyLinkedList(1)
+doublyLinkedList.append(2)
+doublyLinkedList.append(3)
+doublyLinkedList.append(4)
+doublyLinkedList.remove(1)
+doublyLinkedList.print_list()
