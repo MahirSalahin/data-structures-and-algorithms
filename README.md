@@ -22,15 +22,15 @@ The repository is organized as follows:
 ├── Data_Structures\
 │ ├── LinkedList\
 │ ├── Doubly LinkedList\
-│ ├── Stack\
-│ ├── Queue\
+│ ├── Stack & Queue\
 │ ├── Tree\
 │ ├── Hash Table\
 │ └── Graph\
-
+│\
 ├── Algorithms\
 │ ├── Searching\
 │ ├── Sorting\
 │ ├── Recursion\
 │ ├── DynamicProgramming\
+│\
 └── README.md
