@@ -4,58 +4,58 @@
 
 ```py
 def find_middle_node(self):
-        slow = self.head
-        fast = self.head
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
-        return slow
+    slow = self.head
+    fast = self.head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+    return slow
 
 ```
 ## 2. Has loop
 ***Concept: slow, fast pointer.*** If there is a loop in the list, the fast pointer will eventually meet the slow pointer
 ```py
 def has_loop(self):
-        slow = self.head
-        fast = self.head
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
-            if slow == fast:
-                return True
-        return False
+    slow = self.head
+    fast = self.head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        if slow == fast:
+            return True
+    return False
 ```
 ## 3. Remove duplicate
 Using another data structure, set. 
 Time Complexity: O(n)
 ```py
 def remove_duplicates(self):
-            values = set()
-            previous = None
-            current = self.head
-            while current:
-                if current.value in values:
-                    previous.next = current.next
-                    self.length -= 1
-                else:
-                    values.add(current.value)
-                    previous = current
-                current = current.next
+    values = set()
+    previous = None
+    current = self.head
+    while current:
+        if current.value in values:
+            previous.next = current.next
+            self.length -= 1
+        else:
+            values.add(current.value)
+            previous = current
+        current = current.next
 ```
 Without using another data structure.
 Time Complexity : O($n^2$)
 ```py
 def remove_duplicates(self):
-        current = self.head
-        while current:
-            runner = current
-            while runner.next:
-                if runner.next.value == current.value:
-                    runner.next = runner.next.next
-                    self.length -= 1
-                else:
-                    runner = runner.next
-            current = current.next
+    current = self.head
+    while current:
+        runner = current
+        while runner.next:
+            if runner.next.value == current.value:
+                runner.next = runner.next.next
+                self.length -= 1
+            else:
+                runner = runner.next
+        current = current.next
 ```
 ## 4. Find the kth node from the end.
 ***Concept: slow, fast pointer*** Initially move the fast pointer k step further. Then move both the slow & fast pointer by one step. As initially fast pointer was on *kth* node and slow was on the beginning, by the time fast pointer reaches the end, slow pointer reaches *(end - k)th* node.
@@ -77,50 +77,50 @@ def find_kth_from_end(ll, k):
 Similar:[Leetcode 92](https://leetcode.com/problems/reverse-linked-list-ii/)
 ```py
 def reverse_between(self, m, n):
-        if not self.head:
-            return None
- 
-        dummy = Node(0)
-        dummy.next = self.head
-        prev = dummy
- 
-        for i in range(m):
-            prev = prev.next
-        
-        current = prev.next
-        for i in range(n - m):
-            temp = current.next
-            current.next = temp.next
-            temp.next = prev.next
-            prev.next = temp
- 
-        self.head = dummy.next
+    if not self.head:
+        return None
+
+    dummy = Node(0)
+    dummy.next = self.head
+    prev = dummy
+
+    for i in range(m):
+        prev = prev.next
+    
+    current = prev.next
+    for i in range(n - m):
+        temp = current.next
+        current.next = temp.next
+        temp.next = prev.next
+        prev.next = temp
+
+    self.head = dummy.next
 
 ```
 ## 6. Implement partition_list(self, x) 
 Partition the linked list such that all nodes with values less than x come before nodes with values greater than or equal to x.
 ```py
 def partition_list(self, x):
-        if not self.head:
-            return None
-        
-        dummy1 = Node(0)
-        dummy2 = Node(0)
-        prev1 = dummy1
-        prev2 = dummy2
-        current = self.head
-        
-        while current:
-            if current.value < x:
-                prev1.next = current
-                prev1 = current
-            else:
-                prev2.next = current
-                prev2 = current
-            current = current.next
-        
-        prev2.next = None
-        prev1.next = dummy2.next
-        
-        self.head = dummy1.next
+    if not self.head:
+        return None
+    
+    dummy1 = Node(0)
+    dummy2 = Node(0)
+    prev1 = dummy1
+    prev2 = dummy2
+    current = self.head
+    
+    while current:
+        if current.value < x:
+            prev1.next = current
+            prev1 = current
+        else:
+            prev2.next = current
+            prev2 = current
+        current = current.next
+    
+    prev2.next = None
+    prev1.next = dummy2.next
+    
+    self.head = dummy1.next
 ```
