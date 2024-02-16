@@ -25,12 +25,13 @@ The repository is organized as follows:
 │ ├── Stack & Queue\
 │ ├── Tree\
 │ ├── Hash Table\
+│ ├── Heap / Priority Queue\
 │ └── Graph\
 │\
 ├── Algorithms\
 │ ├── Searching\
 │ ├── Sorting\
 │ ├── Recursion\
-│ ├── DynamicProgramming\
+│ ├── Dynamic Programming\
 │\
 └── README.md
