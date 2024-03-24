@@ -1,10 +1,7 @@
 class UnionFind:
     def __init__(self, n) -> None:
-        self.parent = {}
-        self.rank = {}
-        for i in range(1, 1 + n):
-            self.parent[i] = i
-            self.rank[i] = 0
+        self.parent = [i for i in range(n+1)]
+        self.rank = [0] * (n + 1)
 
     def find(self, n):
         par = self.parent[n]
@@ -12,13 +9,13 @@ class UnionFind:
             self.parent[par] = self.parent[self.parent[par]]
             par = self.parent[par]
         return par
-    
+
     def union(self, node1, node2):
         par1, par2 = self.find(node1), self.find(node2)
 
         if par1 == par2:
             return False
-        
+
         if self.rank[par1] > self.rank[par2]:
             self.parent[par2] = par1
 
@@ -29,10 +26,11 @@ class UnionFind:
 
         return True
 
+
 uf = UnionFind(8)
-uf.union(1,2)            
-uf.union(1,5)            
-uf.union(6,5)            
-uf.union(7,3)
-print(uf.find(6))            
-print(uf.union(1,2))            
+uf.union(1, 2)
+uf.union(1, 5)
+uf.union(6, 5)
+uf.union(7, 3)
+print(uf.find(6))
+print(uf.union(1, 2))
