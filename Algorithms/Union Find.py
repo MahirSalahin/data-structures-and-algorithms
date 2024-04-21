@@ -26,6 +26,9 @@ class UnionFind:
 
         return True
 
+    def same(self, node1, node2):
+        return self.find(node1) == self.find(node2)
+
 
 uf = UnionFind(8)
 uf.union(1, 2)
