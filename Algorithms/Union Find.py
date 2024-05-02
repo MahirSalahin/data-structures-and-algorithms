@@ -2,6 +2,7 @@ class UnionFind:
     def __init__(self, n) -> None:
         self.parent = [i for i in range(n+1)]
         self.rank = [0] * (n + 1)
+        self.count = n
 
     def find(self, n):
         par = self.parent[n]
@@ -19,11 +20,14 @@ class UnionFind:
         if self.rank[par1] > self.rank[par2]:
             self.parent[par2] = par1
 
-        else:
+        elif self.rank[par1] < self.rank[par2]:
             self.parent[par1] = par2
-            if self.rank[par1] == self.rank[par2]:
-                self.rank[par2] += 1
 
+        else :
+            self.parent[par1] = par2
+            self.rank[par2] += 1
+            
+        self.count -= 1
         return True
 
     def same(self, node1, node2):
