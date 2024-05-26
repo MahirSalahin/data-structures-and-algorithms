@@ -7,9 +7,8 @@ class Djikstra:
         self.adj = [[] for _ in range(n + 1)]
         self.parent = [-1] * (n + 1)
         self.min_distance = [inf] * (n + 1)
-        for _source, _destination, weight in edges:
-            self.adj[_source].append((_destination, weight))
-            self.adj[_destination].append((_source, weight))
+        for source, destination, weight in edges:
+            self.adj[source].append((destination, weight))
 
     def minimum_distance(self, source, destination=-1):
         self.min_distance[source] = 0
