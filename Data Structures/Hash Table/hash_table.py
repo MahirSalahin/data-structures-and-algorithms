@@ -37,10 +37,11 @@ class HashTable:
         return all_keys
 
 
-my_hash_table = HashTable()
+if __name__ == '__main__':
+    my_hash_table = HashTable()
 
-my_hash_table.set_item('apple', 100)
-my_hash_table.set_item('orange', 150)
-my_hash_table.set_item('strawberry', 170)
+    my_hash_table.set_item('apple', 100)
+    my_hash_table.set_item('orange', 150)
+    my_hash_table.set_item('strawberry', 170)
 
-print(my_hash_table.keys())
+    print(my_hash_table.keys())

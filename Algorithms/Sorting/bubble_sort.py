@@ -6,5 +6,6 @@ def bubble_sort(my_list):
     return my_list
 
 
-a = list(map(int, input().split()))
-print(bubble_sort(a))
+if __name__ == '__main__':
+    a = [12, 1, 3, 124, 5, 986, 2, 6]
+    print(bubble_sort(a))

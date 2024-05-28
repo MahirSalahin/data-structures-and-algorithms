@@ -19,19 +19,20 @@ In this repository, I aim to systematically organize and document my journey in 
 
 The repository is organized as follows:
 
-├── Data_Structures\
-│ ├── LinkedList\
-│ ├── Doubly LinkedList\
-│ ├── Stack & Queue\
-│ ├── Tree\
-│ ├── Hash Table\
-│ ├── Heap / Priority Queue\
-│ └── Graph\
-│\
 ├── Algorithms\
+│ ├── Dynamic Programming\
+│ ├── Graph\
 │ ├── Searching\
 │ ├── Sorting\
 │ ├── Recursion\
-│ ├── Dynamic Programming\
+│\
+├── Data_Structures\
+│ ├── Doubly Linked List\
+│ ├── Graph\
+│ ├── Hash Table\
+│ ├── Heap / Priority Queue\
+│ ├── Linked List\
+│ ├── Stack & Queue\
+│ └── Tree\
 │\
 └── README.md

@@ -29,8 +29,8 @@ class Prim:
 
         return MST
 
-
-edges = [(1, 2, 10), (1, 3, 3), (2, 3, 4),
-         (2, 4, 1), (3, 4, 4), (3, 5, 4), (4, 5, 2)]
-prim = Prim(5, edges)
-print(prim.minimum_spanning_tree())
+if __name__ == '__main__':
+    edges = [(1, 2, 10), (1, 3, 3), (2, 3, 4),
+            (2, 4, 1), (3, 4, 4), (3, 5, 4), (4, 5, 2)]
+    prim = Prim(5, edges)
+    print(prim.minimum_spanning_tree())

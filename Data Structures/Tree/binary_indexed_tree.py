@@ -16,9 +16,10 @@ class BIT:
         return res
 
 
-bit = BIT(4)
-bit.update(1, 1)
-bit.update(2, 2)
-bit.update(3, 3)
-bit.update(4, 4)
-print(bit.query(4) - bit.query(0))
+if __name__ == '__main__':
+    bit = BIT(4)
+    bit.update(1, 1)
+    bit.update(2, 2)
+    bit.update(3, 3)
+    bit.update(4, 4)
+    print(bit.query(4) - bit.query(0))

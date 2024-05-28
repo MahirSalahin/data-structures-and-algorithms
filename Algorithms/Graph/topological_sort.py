@@ -47,7 +47,8 @@ class TopologicalSort:
         return self.topological_order
 
 
-edges = [[1, 2], [2, 3], [1, 5], [4, 2]]
-top_sort = TopologicalSort(5, edges)
-print(top_sort.bfs())
-print(top_sort.dfs())
+if __name__ == '__main__':
+    edges = [[1, 2], [2, 3], [1, 5], [4, 2]]
+    top_sort = TopologicalSort(5, edges)
+    print(top_sort.bfs())
+    print(top_sort.dfs())

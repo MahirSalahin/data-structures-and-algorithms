@@ -107,7 +107,7 @@ class DoublyLinkedList:
         new_node.next = temp.next
         temp.next.prev = new_node
         temp.next = new_node
-        
+
         self.length += 1
         return True
 
@@ -118,20 +118,22 @@ class DoublyLinkedList:
             return self.pop_first()
         if index == self.length - 1:
             return self.pop()
-        
+
         temp = self.get(index)
 
         temp.prev.next = temp.next
         temp.next.prev = temp.prev
         temp.next = None
         temp.prev = None
-        
+
         self.length -= 1
         return temp
 
-doublyLinkedList = DoublyLinkedList(1)
-doublyLinkedList.append(2)
-doublyLinkedList.append(3)
-doublyLinkedList.append(4)
-doublyLinkedList.remove(1)
-doublyLinkedList.print_list()
+
+if __name__ == '__main__':
+    doublyLinkedList = DoublyLinkedList(1)
+    doublyLinkedList.append(2)
+    doublyLinkedList.append(3)
+    doublyLinkedList.append(4)
+    doublyLinkedList.remove(1)
+    doublyLinkedList.print_list()

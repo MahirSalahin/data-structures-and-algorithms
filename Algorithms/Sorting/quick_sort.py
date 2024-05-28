@@ -18,6 +18,6 @@ def quick_sort(my_list, left, right):
     return my_list
 
 
-a = list(map(int, input().split()))
-quick_sort(a, 0, len(a)-1)
-print(a)
+if __name__ == '__main__':
+    a = [12, 1, 3, 124, 5, 986, 2, 6]
+    print(quick_sort(a, 0, len(a)-1))

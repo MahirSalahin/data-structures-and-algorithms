@@ -7,5 +7,6 @@ def insertion_sort(my_list):
     return my_list
 
 
-a = list(map(int, input().split()))
-print(insertion_sort(a))
+if __name__ == '__main__':
+    a = [12, 1, 3, 124, 5, 986, 2, 6]
+    print(insertion_sort(a))

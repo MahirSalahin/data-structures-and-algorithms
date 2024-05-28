@@ -35,10 +35,11 @@ class Trie:
         return True
 
 
-prefix_tree = Trie()
-prefix_tree.insert("apple")
-prefix_tree.insert("orange")
-prefix_tree.insert("papaya")
-prefix_tree.insert("grapes")
-print(prefix_tree.search('pears'))
-print(prefix_tree.startsWith('app'))
+if __name__ == '__main__':
+    prefix_tree = Trie()
+    prefix_tree.insert("apple")
+    prefix_tree.insert("orange")
+    prefix_tree.insert("papaya")
+    prefix_tree.insert("grapes")
+    print(prefix_tree.search('pears'))
+    print(prefix_tree.startsWith('app'))

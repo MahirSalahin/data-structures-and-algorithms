@@ -35,41 +35,23 @@ class Graph:
         return True
 
 
-my_graph = Graph()
-my_graph.add_vertex('A')
-my_graph.add_vertex('B')
-my_graph.add_vertex('C')
-my_graph.add_vertex('D')
+if __name__ == '__main__':
+    my_graph = Graph()
+    my_graph.add_vertex('A')
+    my_graph.add_vertex('B')
+    my_graph.add_vertex('C')
+    my_graph.add_vertex('D')
 
-my_graph.add_edge('A', 'B')
-my_graph.add_edge('A', 'C')
-my_graph.add_edge('A', 'D')
-my_graph.add_edge('B', 'D')
-my_graph.add_edge('C', 'D')
+    my_graph.add_edge('A', 'B')
+    my_graph.add_edge('A', 'C')
+    my_graph.add_edge('A', 'D')
+    my_graph.add_edge('B', 'D')
+    my_graph.add_edge('C', 'D')
 
+    print('Graph before remove_vertex():')
+    my_graph.print_graph()
 
-print('Graph before remove_vertex():')
-my_graph.print_graph()
+    my_graph.remove_vertex('D')
 
-
-my_graph.remove_vertex('D')
-
-
-print('\nGraph after remove_vertex():')
-my_graph.print_graph()
-
-"""
-EXPECTED OUTPUT:
-----------------
-    Graph before remove_vertex():
-    A : ['B', 'C', 'D']
-    B : ['A', 'D']
-    C : ['A', 'D']
-    D : ['A', 'B', 'C']
-
-    Graph after remove_vertex():
-    A : ['B', 'C']
-    B : ['A']
-    C : ['A']
-
-"""
+    print('\nGraph after remove_vertex():')
+    my_graph.print_graph()

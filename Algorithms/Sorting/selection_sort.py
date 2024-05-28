@@ -4,8 +4,11 @@ def selection_sort(my_list):
         for j in range(i+1, len(my_list)):
             if my_list[j] < my_list[min_index]:
                 min_index = j
-        if i != min_index:    
+        if i != min_index:
             my_list[i], my_list[min_index] = my_list[min_index], my_list[i]
     return my_list
-a = list(map(int, input().split()))
-print(selection_sort(a))
+
+
+if __name__ == '__main__':
+    a = [12, 1, 3, 124, 5, 986, 2, 6]
+    print(selection_sort(a))

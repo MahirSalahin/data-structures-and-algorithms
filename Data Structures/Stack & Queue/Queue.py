@@ -39,10 +39,12 @@ class Queue:
             temp.next = None
         self.length -= 1
         return temp
-    
-my_queue = Queue(1)
-my_queue.enqueue(2)
-my_queue.enqueue(3)
-# my_queue.print_queqe()
-my_queue.dequeue()
-my_queue.print_queqe()
+
+
+if __name__ == '__main__':
+    my_queue = Queue(1)
+    my_queue.enqueue(2)
+    my_queue.enqueue(3)
+    # my_queue.print_queqe()
+    my_queue.dequeue()
+    my_queue.print_queqe()
