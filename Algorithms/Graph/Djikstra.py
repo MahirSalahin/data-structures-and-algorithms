@@ -39,3 +39,11 @@ class Djikstra:
             destination = self.parent[destination]
         path.reverse()
         return path if path[0] == source else [-1]
+
+
+if __name__ == '__main__':
+    edges = [(1, 2, 10), (1, 3, 3), (2, 3, 4),
+             (2, 4, 1), (3, 4, 4), (3, 5, 4), (4, 5, 2)]
+    graph = Djikstra(5, edges)
+    print(graph.minimum_distance(1, 5))  # Output: 7
+    print(graph.shortest_path(1, 5))  # Output: [1, 3, 5]

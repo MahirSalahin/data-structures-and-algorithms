@@ -1,3 +1,4 @@
+# Prefix Tree
 class TreeNode:
     def __init__(self) -> None:
         self.children = {}

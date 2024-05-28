@@ -34,10 +34,12 @@ class UnionFind:
         return self.find(node1) == self.find(node2)
 
 
-uf = UnionFind(8)
-uf.union(1, 2)
-uf.union(1, 5)
-uf.union(6, 5)
-uf.union(7, 3)
-print(uf.find(6))
-print(uf.union(1, 2))
+if __name__ == '__main__':
+    uf = UnionFind(8)
+    uf.union(1, 2)
+    uf.union(1, 5)
+    uf.union(6, 5)
+    uf.union(7, 3)
+    print(uf.find(6))  # Output 2
+    print(uf.union(1, 2))  # Output False
+    print(uf.same(1, 5))  # Output True
