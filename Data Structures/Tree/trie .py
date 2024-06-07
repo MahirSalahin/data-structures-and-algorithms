@@ -34,6 +34,16 @@ class Trie:
             cur = cur.children[letter]
         return True
 
+    def firstMatchedPrefix(self, word):
+        cur = self.root
+        i = 0
+        for letter in word:
+            if letter not in cur.children:
+                return word[:i]
+            cur = cur.children[letter]
+            i += 1
+        return word[:i]
+
 
 if __name__ == '__main__':
     prefix_tree = Trie()
@@ -43,3 +53,6 @@ if __name__ == '__main__':
     prefix_tree.insert("grapes")
     print(prefix_tree.search('pears'))
     print(prefix_tree.startsWith('app'))
+    print(prefix_tree.startsWith('juice'))
+    print(prefix_tree.firstMatchedPrefix('applejuice'))
+    print(prefix_tree.firstMatchedPrefix('juice'))
