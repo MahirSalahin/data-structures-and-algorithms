@@ -15,7 +15,7 @@ class TopologicalSort:
     def bfs(self):
         self.topological_order = []
         queue = deque()
-        for i in range(1, self.n + 1):
+        for i in range(self.n + 1):
             if self.indegree[i] == 0:
                 queue.append(i)
 
@@ -41,14 +41,14 @@ class TopologicalSort:
     def dfs(self):
         self.topological_order = []
         visited = [False] * (self.n + 1)
-        for i in range(1, self.n):
+        for i in range(self.n):
             self._dfs(i, visited)
         self.topological_order.reverse()
         return self.topological_order
 
 
 if __name__ == '__main__':
-    edges = [[1, 2], [2, 3], [1, 5], [4, 2]]
-    top_sort = TopologicalSort(5, edges)
+    edges = [[0,3],[0,4],[1,3],[2,4],[2,7],[3,5],[3,6],[3,7]]
+    top_sort = TopologicalSort(7, edges)
     print(top_sort.bfs())
     print(top_sort.dfs())
