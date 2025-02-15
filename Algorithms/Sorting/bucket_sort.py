@@ -1,3 +1,6 @@
+from insertion_sort import insertion_sort
+
+
 def bucket_sort(my_list):
     n = len(my_list)
     mx = max(my_list)
@@ -6,7 +9,7 @@ def bucket_sort(my_list):
         index = (my_list[i] * n) // (mx + 1)
         bucket[index].append(my_list[i])
     for i in range(n):
-        bucket[i].sort()
+        insertion_sort(bucket[i])
     k = 0
     for i in range(n):
         for j in range(len(bucket[i])):
