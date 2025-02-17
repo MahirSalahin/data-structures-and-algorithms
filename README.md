@@ -20,6 +20,7 @@ In this repository, I aim to systematically organize and document my journey in 
 The repository is organized as follows:
 
 ├── Algorithms\
+│ ├── Divide and Conquer\
 │ ├── Dynamic Programming\
 │ ├── Graph\
 │ ├── Searching\
